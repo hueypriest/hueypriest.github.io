@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>erik martin</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --violet: #8a2be2;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            line-height: 1.6;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Dithering patterns */
+        .dither-heavy {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 2px),
+                repeating-linear-gradient(-45deg, transparent, transparent 1px, rgba(0,0,0,0.05) 1px, rgba(0,0,0,0.05) 2px);
+            background-size: 4px 4px, 4px 4px;
+        }
+
+        .dither-medium {
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 3px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 3px);
+            background-size: 3px 3px, 3px 3px;
+        }
+
+        .dither-light {
+            background-image: 
+                repeating-conic-gradient(from 45deg at 50% 50%, transparent 0deg, rgba(0,0,0,0.05) 90deg, transparent 180deg);
+            background-size: 8px 8px;
+        }
+
+        /* Scanlines overlay */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.03) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0,0,0,0.03) 3px
+            );
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--violet);
+            filter: contrast(1.2) grayscale(0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 0 var(--violet);
+            font-weight: normal;
+        }
+
+        /* Newsletter section */
+        .newsletter {
+            background: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+        }
+
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--violet);
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            padding: 10px 15px;
+            border: 2px solid var(--black);
+            background: var(--white);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .newsletter-form button {
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            padding: 10px 20px;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--violet);
+            border-color: var(--violet);
+        }
+
+        .newsletter-disclaimer {
+            margin-top: 20px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--black);
+            border-bottom: 2px solid var(--violet);
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--violet);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 2px dashed var(--black);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--violet);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        /* About section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: var(--white);
+            border: 2px solid var(--black);
+        }
+
+        /* Projects and Writings grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 30px;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 var(--violet);
+        }
+
+        .card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--violet);
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .card a {
+            color: var(--violet);
+            text-decoration: underline;
+            font-size: 18px;
+        }
+
+        /* Interviews section */
+        .interviews-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .interview-item {
+            padding: 20px;
+            border-bottom: 1px dashed var(--black);
+            margin-bottom: 20px;
+        }
+
+        .interview-item:last-child {
+            border-bottom: none;
+        }
+
+        .interview-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .interview-item a {
+            color: var(--violet);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--violet);
+            text-decoration: underline;
+            margin: 0 15px;
+        }
+
+        .footer-message {
+            margin-top: 30px;
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 36px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(28px, 6vw, 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanlines overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Hero -->
+    <header class="hero dither-heavy">
+        <div class="hero-content">
+            <img src="https://pbs.twimg.com/profile_images/1863695259333664768/UjHKFO8U_400x400.jpg" alt="erik martin" class="hero-image">
+            <h1>erik martin</h1>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#writings">writings</a></li>
+            <li><a href="#interviews">interviews etc</a></li>
+        </ul>
+    </nav>
+
+    <!-- Newsletter -->
+    <section class="newsletter dither-medium">
+        <div class="container">
+            <h2>occasional transmissions</h2>
+            <form class="newsletter-form" onsubmit="handleSubmit(event)">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">subscribe</button>
+            </form>
+            <p class="newsletter-disclaimer">
+                periodic updates & rants. unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container">
+        <h2>about</h2>
+        <div class="about-content dither-light">
+            <p>
+                i help build thriving community spaces and love getting lost in historical rabbit holes.
+            </p>
+            <br>
+            <p>
+                also building community.club for community folks
+            </p>
+            <br>
+            <p>
+                past community work includes reddit, depop, nike, wework, and midjourney.
+            </p>
+            <br>
+            <p>
+                outside work i'm obsessed with early 20th century history, especially the kind you find in vintage community cookbooks and forgotten local archives.
+            </p>
+            <br>
+            <p>
+                proud gemini who still believes
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+        <h2>projects</h2>
+        <div class="grid">
+            <div class="card dither-medium">
+                <h3>neural archaeology</h3>
+                <p>excavating dead platforms and their ghosts. what happens to communities when their digital homes disappear?</p>
+                <a href="/projects/neural-archaeology.html">explore ruins →</a>
+            </div>
+            <div class="card dither-medium">
+                <h3>hypertext dreaming</h3>
+                <p>experiments in non-linear storytelling and collective memory. because the web was supposed to be weird.</p>
+                <a href="/projects/hypertext-dreaming.html">enter maze →</a>
+            </div>
+            <div class="card dither-medium">
+                <h3>memory palace</h3>
+                <p>building tools for digital preservation before the platforms eat everything. your data, your rules.</p>
+                <a href="/projects/memory-palace.html">view blueprints →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writings -->
+    <section id="writings" class="container">
+        <h2>writings</h2>
+        <div class="grid">
+            <div class="card dither-light">
+                <h3>the platform is eating itself</h3>
+                <p>on the inevitable enshittification of everything we love online and why we keep falling for it.</p>
+                <a href="/writings/platform-eating-itself.html">read more →</a>
+            </div>
+            <div class="card dither-light">
+                <h3>notes from the moderator wars</h3>
+                <p>what i learned watching communities tear themselves apart. spoiler: we never learn.</p>
+                <a href="/writings/moderator-wars.html">read more →</a>
+            </div>
+            <div class="card dither-light">
+                <h3>your community is not a product</h3>
+                <p>a love letter to the forums, BBSes, and weird corners of the internet that venture capital hasn't ruined yet.</p>
+                <a href="/writings/community-not-product.html">read more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interviews -->
+    <section id="interviews" class="container">
+        <h2>interviews etc</h2>
+        <div class="interviews-list dither-light">
+            <div class="interview-item">
+                <h3>on the death of digital communities</h3>
+                <p>podcast appearance discussing why every platform eventually betrays its users</p>
+                <a href="https://example.com/podcast1" target="_blank">listen →</a>
+            </div>
+            <div class="interview-item">
+                <h3>reddit, moderation, and the human cost</h3>
+                <p>long-form interview about my time in the trenches of platform governance</p>
+                <a href="https://example.com/interview1" target="_blank">read →</a>
+            </div>
+            <div class="interview-item">
+                <h3>building for the next collapse</h3>
+                <p>conference talk on designing systems that fail gracefully</p>
+                <a href="https://example.com/talk1" target="_blank">watch →</a>
+            </div>
+            <div class="interview-item">
+                <h3>the moderator's dilemma</h3>
+                <p>panel discussion on community governance and why it's all doomed</p>
+                <a href="https://example.com/panel1" target="_blank">view →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dither-heavy">
+        <div class="container">
+            <div>
+                <a href="mailto:erik@hueypriest.com">contact</a>
+                <a href="https://linkedin.com/in/erikmartin" target="_blank">linkedin</a>
+                <a href="/privacy.html">privacy</a>
+            </div>
+            <p class="footer-message">
+                this site collects nothing. no cookies, no trackers, no analytics. 
+                just pixels on a screen trying to help me prove i exist.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('subscription endpoints are a lie. but thanks for trying.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
