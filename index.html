@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erik Martin — community, history &amp; rabbit holes</title>
+<meta name="description" content="Erik Martin helps build thriving community spaces and gets lost in historical rabbit holes. Writes Assorted Wormholes, Chapel Hill Rear View, and Covered Dish: newsletters on local history, community-powered cookbooks, and the craft of community work.">
+<link rel="canonical" href="https://hueypriest.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hueypriest.com/">
+<meta property="og:title" content="Erik Martin — community, history &amp; rabbit holes">
+<meta property="og:description" content="i help build thriving community spaces and love getting lost in historical rabbit holes.">
+<meta property="og:image" content="https://hueypriest.com/avatar.jpg">
+<meta property="og:image:alt" content="A needlepoint lion with googly eyes glued on.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hueypriest">
+<meta name="twitter:title" content="Erik Martin — community, history &amp; rabbit holes">
+<meta name="twitter:description" content="i help build thriving community spaces and love getting lost in historical rabbit holes.">
+<meta name="twitter:image" content="https://hueypriest.com/avatar.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f1f2ee'/%3E%3Cpath d='M3 3 L13 13 M13 3 L3 13' stroke='%23bf3b2b' stroke-width='2.5'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://hueypriest.com/#erik",
+      "name": "Erik Martin",
+      "alternateName": "hueypriest",
+      "url": "https://hueypriest.com/",
+      "image": "https://hueypriest.com/avatar.jpg",
+      "description": "Community strategist, writer, and amateur historian. reddit's first community manager and later its General Manager; Head of Community at Midjourney and Nextdoor. Independent since July 2026.",
+      "jobTitle": "Independent community strategy and research consultant",
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chapel Hill",
+          "addressRegion": "NC",
+          "addressCountry": "US"
+        }
+      },
+      "knowsAbout": [
+        "Online community management",
+        "Community strategy",
+        "Volunteer governance at scale",
+        "Trust and Safety",
+        "AI content moderation",
+        "Evaluation of AI moderation systems",
+        "Neighborhood health measurement",
+        "Community-led growth",
+        "Discord community operations",
+        "History of the community manager profession",
+        "Early history of reddit",
+        "Community cookbooks",
+        "Early 20th century American communal projects",
+        "Chapel Hill, North Carolina history",
+        "Archival research"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/erikmartin/",
+        "https://twitter.com/hueypriest",
+        "https://hueypriest.beehiiv.com/",
+        "https://chapelhillrearview.com/",
+        "https://covered-dish.beehiiv.com/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hueypriest.com/#site",
+      "url": "https://hueypriest.com/",
+      "name": "Erik Martin",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://hueypriest.com/#erik"
+      }
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://hueypriest.beehiiv.com/#pub",
+      "name": "Assorted Wormholes",
+      "url": "https://hueypriest.beehiiv.com/",
+      "inLanguage": "en-US",
+      "description": "Occasional updates from Erik Martin: reading, building, and archive digging.",
+      "author": {
+        "@id": "https://hueypriest.com/#erik"
+      }
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://chapelhillrearview.com/#pub",
+      "name": "Chapel Hill Rear View",
+      "url": "https://chapelhillrearview.com/",
+      "inLanguage": "en-US",
+      "description": "Chapel Hill and Orange County, North Carolina, fifty years ago, from the Daily Tar Heel archives.",
+      "author": {
+        "@id": "https://hueypriest.com/#erik"
+      }
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://covered-dish.beehiiv.com/#pub",
+      "name": "Covered Dish",
+      "url": "https://covered-dish.beehiiv.com/",
+      "inLanguage": "en-US",
+      "description": "Community-powered cookbooks of the past, read as historical documents.",
+      "author": {
+        "@id": "https://hueypriest.com/#erik"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ---------------------------------------------------------------
+   hueypriest.com
+   Design system: cross-stitch / redwork folk embroidery
+   Palette sampled from a garage sign; type is Jost + Space Mono.
+   Single self-contained file. No build step. No dependencies.
+----------------------------------------------------------------*/
+
+:root{
+  /* --- ground & ink --- */
+  --ground:      #f1f2ee;   /* cool screen-white */
+  --ground-deep: #e6e8e2;   /* recessed panel */
+  --surface:     #fbfbf9;   /* raised card */
+  --ink:         #17191d;
+  --ink-soft:    #4a4f57;
+  --ink-faint:   #7b818a;   /* cool grey, biased toward the blue */
+  --rule:        #d2d5cd;
+
+  /* --- redwork thread palette --- */
+  --red:    #bf3b2b;        /* vermillion */
+  --red-deep:#9c2e20;
+  --blue:   #33506b;
+  --ochre:  #b0812f;
+
+  /* --- stitch motifs --- */
+  --aida-color:   rgba(23,25,29,.055);
+
+  --shadow: 0 1px 0 var(--rule);
+
+  /* --- type scale (major third, clamped) --- */
+  --t-xs:  .72rem;
+  --t-sm:  .83rem;
+  --t-base: 1.02rem;
+  --t-lg:  1.2rem;
+  --t-xl:  clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
+  --t-2xl: clamp(1.8rem, 1.3rem + 2.4vw, 2.7rem);
+  --t-3xl: clamp(2.5rem, 1.6rem + 4.2vw, 4.1rem);
+
+  --measure: 62ch;
+  --gutter: clamp(1.15rem, 4vw, 3rem);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:      #14161a;
+    --ground-deep: #101215;
+    --surface:     #1b1e23;
+    --ink:         #e9eae4;
+    --ink-soft:    #b3b8bf;
+    --ink-faint:   #858b94;
+    --rule:        #2c3037;
+    --red:    #e2604a;
+    --red-deep:#f0806c;
+    --blue:   #8fb0cd;
+    --ochre:  #d3a55c;
+    --aida-color:   rgba(233,234,228,.06);
+    --shadow: 0 1px 0 var(--rule);
+  }
+}
+
+:root[data-theme="dark"]{
+  --ground:      #14161a;
+  --ground-deep: #101215;
+  --surface:     #1b1e23;
+  --ink:         #e9eae4;
+  --ink-soft:    #b3b8bf;
+  --ink-faint:   #858b94;
+  --rule:        #2c3037;
+  --red:    #e2604a;
+  --red-deep:#f0806c;
+  --blue:   #8fb0cd;
+  --ochre:  #d3a55c;
+  --aida-color:   rgba(233,234,228,.06);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  background-color: var(--ground);
+  /* aida cloth: a faint woven mesh, 8 counts to the block */
+  background-image:
+    repeating-linear-gradient(0deg,  var(--aida-color) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(90deg, var(--aida-color) 0 1px, transparent 1px 8px);
+  color: var(--ink);
+  font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  font-size: var(--t-base);
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: .005em;
+  text-rendering: optimizeLegibility;
+}
+
+.shell{
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: 0;
+}
+
+a{ color: inherit; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible{
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ---- the stitch band: a row of cross-stitch X's, drawn as SVG ---- */
+.stitchband{
+  height: 13px;
+  background-repeat: repeat-x;
+  background-position: left center;
+  background-size: auto 13px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%23bf3b2b' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+  opacity:.9;
+}
+.stitchband--blue{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%2333506b' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+  opacity:.55;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .stitchband{
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%23e2604a' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+  }
+  :root:not([data-theme="light"]) .stitchband--blue{
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%238fb0cd' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+  }
+}
+:root[data-theme="dark"] .stitchband{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%23e2604a' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+}
+:root[data-theme="dark"] .stitchband--blue{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='%238fb0cd' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
+}
+
+/* ---------------- utility type ---------------- */
+.label{
+  font-family:"Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  color: var(--ink-faint);
+  margin:0;
+}
+.mono{ font-family:"Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* ---------------- masthead ---------------- */
+.masthead{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap: 1rem 2rem;
+  padding-block: 1.4rem 1.1rem;
+}
+.masthead__mark{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color: var(--ink-faint);
+}
+.masthead__mark b{ color: var(--red); font-weight:700; }
+
+.socials{
+  display:flex;
+  gap: 1.1rem;
+  list-style:none;
+  margin:0; padding:0;
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.socials a{
+  text-decoration:none;
+  color: var(--ink-soft);
+  border-bottom:1px solid transparent;
+  padding-bottom:2px;
+  transition: color .18s ease, border-color .18s ease;
+}
+.socials a:hover{ color: var(--red); border-bottom-color: var(--red); }
+
+/* ---------------- hero ---------------- */
+.hero{
+  padding-block: clamp(2.2rem, 6vw, 4.5rem) clamp(2rem, 5vw, 3.6rem);
+  display:grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 5vw, 4rem);
+  align-items:start;
+}
+@media (max-width: 820px){
+  .hero{ grid-template-columns: 1fr; }
+}
+
+/* the needlepoint lion. already aida cloth, so it needs no stitched frame —
+   a hairline rule and a hard offset shadow, like the System 7 dialog. */
+.hero__intro{
+  display:flex;
+  align-items:center;
+  gap: clamp(1rem, 3vw, 1.7rem);
+  margin-bottom: 1.5rem;
+}
+.hero__intro > div{ min-width: 0; }
+.hero__intro .hero__name{ margin-bottom: .3rem; }
+.hero__intro .hero__tag{ margin-bottom: 0; }
+.avatar{
+  flex: none;
+  display:block;
+  width: clamp(92px, 13vw, 136px);
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--red) 82%, transparent);
+}
+@media (max-width: 420px){
+  .hero__intro{ gap: .9rem; }
+  .avatar{ box-shadow: 4px 4px 0 color-mix(in srgb, var(--red) 82%, transparent); }
+}
+
+.hero__name{
+  font-size: var(--t-3xl);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.025em;
+  margin: 0 0 .6rem;
+  text-wrap: balance;
+}
+.hero__tag{
+  font-size: var(--t-xl);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: -.005em;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+  text-wrap: balance;
+}
+.hero__tag em{
+  font-style: normal;
+  color: var(--red);
+}
+
+.hero__bio{
+  max-width: var(--measure);
+  display:flex;
+  flex-direction:column;
+  gap: .85rem;
+  margin:0;
+}
+.hero__bio p{ margin:0; }
+.hero__bio strong{
+  font-weight:500;
+  color: var(--ink);
+  border-bottom: 2px solid color-mix(in srgb, var(--red) 35%, transparent);
+}
+.hero__coda{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-sm);
+  color: var(--ink-faint);
+  letter-spacing:.01em;
+}
+
+/* --- the sampler: a stitched block in the hero's right column --- */
+.sampler{
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  padding: 1.4rem 1.5rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:.9rem;
+}
+.sampler__head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+}
+.sampler__title{
+  font-size: var(--t-lg);
+  font-weight:500;
+  letter-spacing:-.01em;
+  margin:0;
+  line-height:1.2;
+}
+.sampler__desc{
+  margin:0;
+  color: var(--ink-soft);
+  font-size: var(--t-sm);
+  line-height:1.5;
+}
+.subscribe{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:0;
+}
+.subscribe input{
+  flex: 1 1 12rem;
+  min-width:0;
+  font-family:"Jost", sans-serif;
+  font-size: var(--t-sm);
+  padding: .62rem .7rem;
+  color: var(--ink);
+  background: var(--ground);
+  border: 1px solid var(--rule);
+  border-radius:0;
+}
+.subscribe input::placeholder{ color: var(--ink-faint); }
+.subscribe button{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  padding: .62rem 1.05rem;
+  color: var(--ground);
+  background: var(--red);
+  border:1px solid var(--red);
+  border-radius:0;
+  cursor:pointer;
+  transition: background .18s ease;
+}
+.subscribe button:hover{ background: var(--red-deep); border-color: var(--red-deep); }
+.subscribe__note{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  color: var(--ink-faint);
+  margin:0;
+}
+
+/* ---------------- section furniture ---------------- */
+.section{
+  padding-block: clamp(2.2rem, 5vw, 3.4rem);
+}
+.section__head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom: 1.5rem;
+}
+.section__title{
+  font-size: var(--t-2xl);
+  font-weight:500;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin:0;
+}
+
+/* ---------------- newsletter ledger ---------------- */
+.ledger{
+  display:flex;
+  flex-direction:column;
+  gap: 1.6rem;
+}
+.pub{
+  display:grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: .4rem clamp(1.4rem, 4vw, 3rem);
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 720px){
+  .pub{ grid-template-columns: 1fr; gap:.9rem; }
+}
+.pub__meta{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+}
+.pub__name{
+  font-size: var(--t-xl);
+  font-weight:500;
+  letter-spacing:-.015em;
+  line-height:1.12;
+  margin:0;
+}
+.pub__name a{
+  text-decoration:none;
+  background-image: linear-gradient(var(--red), var(--red));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .22s ease;
+}
+.pub__name a:hover{ background-size: 100% 2px; color: var(--red); }
+.pub__desc{
+  margin:0;
+  color: var(--ink-soft);
+  font-size: var(--t-sm);
+  line-height:1.5;
+}
+.pub__link{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  letter-spacing:.06em;
+  color: var(--ink-faint);
+  text-decoration:none;
+}
+.pub__link:hover{ color: var(--red); }
+
+.issues{
+  list-style:none;
+  margin:0; padding:0;
+  display:flex;
+  flex-direction:column;
+}
+.issues li + li{ border-top: 1px dotted var(--rule); }
+.issues a{
+  display:grid;
+  grid-template-columns: 5.6rem minmax(0,1fr);
+  gap: .2rem .9rem;
+  padding: .62rem 0;
+  text-decoration:none;
+  align-items:baseline;
+}
+@media (max-width: 520px){
+  .issues a{ grid-template-columns: 1fr; }
+}
+.issues .date{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  color: var(--ink-faint);
+  letter-spacing:.02em;
+  font-variant-numeric: tabular-nums;
+  white-space:nowrap;
+}
+.issues .t{
+  font-size: var(--t-base);
+  line-height:1.35;
+  color: var(--ink);
+  transition: color .16s ease;
+}
+.issues .sub{
+  grid-column: 2;
+  font-size: var(--t-sm);
+  color: var(--ink-faint);
+  line-height:1.4;
+}
+@media (max-width: 520px){ .issues .sub{ grid-column:1; } }
+.issues a:hover .t{ color: var(--red); }
+
+/* the lead publication gets weight, not a box */
+.pub--lead{
+  border-top: 3px solid var(--red);
+  padding-block: 1.9rem 1.7rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .9rem;
+}
+.pub--lead .pub__meta{
+  display:grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items:baseline;
+  gap: .3rem 1.4rem;
+}
+.pub--lead .pub__name{
+  font-size: var(--t-2xl);
+  letter-spacing:-.025em;
+}
+.pub--lead .pub__desc{ margin-top:.1rem; }
+.pub--lead .pub__link{ grid-column: 1 / -1; }
+@media (max-width: 720px){
+  .pub--lead .pub__meta{ grid-template-columns: 1fr; }
+}
+
+/* ---------------- musings ---------------- */
+.musings{
+  list-style:none;
+  margin:0; padding:0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0;
+  /* borders live on the cells, so a short final row leaves no empty panel */
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.musings li{
+  background: var(--surface);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.musings a{
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  height:100%;
+  padding: 1.15rem 1.25rem 1.3rem;
+  text-decoration:none;
+  transition: background .18s ease;
+}
+.musings a:hover{ background: var(--ground-deep); }
+.musings .src{
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color: var(--ink-faint);
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+}
+.musings .src::before{
+  content:"";
+  width:9px; height:9px;
+  flex: none;
+  background: var(--blue);
+  clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);
+}
+.musings li.is-history .src::before{ background: var(--ochre); }
+.musings li.is-craft .src::before{ background: var(--red); }
+.musings .t{
+  font-size: var(--t-lg);
+  font-weight:400;
+  line-height:1.26;
+  letter-spacing:-.012em;
+  color: var(--ink);
+  margin:0;
+  transition: color .16s ease;
+}
+.musings a:hover .t{ color: var(--red); }
+.musings .d{
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+  line-height:1.45;
+  margin:0;
+  margin-top:auto;
+  padding-top:.3rem;
+}
+
+/* ---------------- colophon ---------------- */
+.colophon{
+  padding-block: 2.4rem 3.2rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 1rem 2.5rem;
+  justify-content:space-between;
+  align-items:flex-end;
+  color: var(--ink-faint);
+  font-family:"Space Mono", monospace;
+  font-size: var(--t-xs);
+  line-height:1.7;
+}
+.colophon p{ margin:0; max-width: 34rem; }
+.colophon a{ color: var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule); }
+.colophon a:hover{ color: var(--red); border-bottom-color: var(--red); }
+
+/* ---------------- System 7 easter egg ---------------- */
+.stitch-btn{
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 40;
+  width: 34px; height: 34px;
+  display:grid; place-items:center;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  padding:0;
+  color: var(--red);
+  transition: transform .18s ease;
+}
+.stitch-btn:hover{ transform: rotate(45deg); }
+
+.dlg-scrim{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(23,25,29,.34);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.dlg-scrim[hidden]{ display:none; }
+
+.dlg{
+  width: min(26rem, 100%);
+  background: #f1f2ee;
+  color: #17191d;
+  border: 2px solid #17191d;
+  box-shadow: 5px 5px 0 rgba(23,25,29,.75);
+  font-family:"Space Mono", monospace;
+}
+.dlg__bar{
+  border-bottom: 2px solid #17191d;
+  padding: 3px 6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background-image: repeating-linear-gradient(0deg,#17191d 0 1px,transparent 1px 3px);
+}
+.dlg__close{
+  width: 12px; height: 12px;
+  border: 2px solid #17191d;
+  background: #f1f2ee;
+  padding: 0;
+  cursor: pointer;
+  flex: none;
+}
+.dlg__title{
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: #f1f2ee;
+  padding: 0 6px;
+  margin: 0 auto;
+}
+.dlg__body{
+  padding: 1.05rem 1.1rem 1.2rem;
+  font-size: 12px;
+  line-height: 1.6;
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+}
+.dlg__body p{ margin:0; }
+.dlg__ok{
+  align-self:flex-end;
+  font-family:"Space Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing:.09em;
+  padding: .4rem 1.3rem;
+  background: #f1f2ee;
+  color: #17191d;
+  border: 2px solid #17191d;
+  box-shadow: 2px 2px 0 #17191d;
+  cursor: pointer;
+}
+.dlg__ok:active{ transform: translate(2px,2px); box-shadow:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="masthead">
+    <span class="masthead__mark">hueypriest<b>.</b>com</span>
+    <ul class="socials">
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://www.linkedin.com/in/erikmartin/" rel="me">LinkedIn</a></li>
+      <li><a href="https://twitter.com/hueypriest" rel="me">Twitter</a></li>
+      <li><a href="https://hueypriest.beehiiv.com/">Newsletter</a></li>
+    </ul>
+  </header>
+
+</div>
+
+<div class="stitchband" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <section class="hero">
+    <div>
+      <div class="hero__intro">
+        <img class="avatar" src="avatar.jpg" width="560" height="560" decoding="async"
+             alt="A needlepoint lion with googly eyes glued on.">
+        <div>
+          <h1 class="hero__name">erik martin</h1>
+          <p class="hero__tag">community, history &amp; <em>rabbit holes</em></p>
+        </div>
+      </div>
+
+      <div class="hero__bio">
+        <p>i help build thriving community spaces and love getting lost in historical rabbit holes.</p>
+        <p>since july 2026 i've run my own practice: community platform strategy, neighborhood health measurement, and ai readiness work. <strong>Nextdoor</strong> is the anchor client. before that, community roles at reddit, depop, nike, wework, midjourney &amp; nextdoor. <a href="about.html" style="color:inherit;border-bottom:1px solid var(--red);text-decoration:none">the whole list &rarr;</a></p>
+        <p>outside work i'm obsessed with early 20th century history &mdash; especially the kind you find in vintage community cookbooks and forgotten local archives.</p>
+        <p class="hero__coda">proud gemini who still believes</p>
+      </div>
+    </div>
+
+    <div class="sampler">
+      <div class="sampler__head">
+        <h2 class="sampler__title">Assorted Wormholes</h2>
+      </div>
+      <p class="sampler__desc">occasional updates from erik: what i'm reading, building, and digging out of archives. no schedule, no pitch.</p>
+      <form class="subscribe" id="subscribe-form">
+        <label class="sr-only" for="subscribe-email" hidden>Email address</label>
+        <input id="subscribe-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="subscribe__note">Delivered via beehiiv. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="stitchband stitchband--blue" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <section class="section" id="newsletters">
+    <div class="section__head">
+      <h2 class="section__title">dispatches</h2>
+      <p class="label">three newsletters, one archive habit</p>
+    </div>
+
+    <div class="ledger">
+
+      <article class="pub pub--lead">
+        <div class="pub__meta">
+          <h3 class="pub__name"><a href="https://hueypriest.beehiiv.com/">Assorted Wormholes</a></h3>
+          <p class="pub__desc">occasional updates from erik</p>
+          <a class="pub__link" href="https://hueypriest.beehiiv.com/">hueypriest.beehiiv.com &rarr;</a>
+        </div>
+        <div>
+          <p class="label" style="margin-bottom:.6rem">the main list</p>
+          <p style="margin:0 0 .7rem; color:var(--ink-soft); max-width:var(--measure)">The catch-all. New writing, whatever has hold of me this month, and the occasional note about what i'm working on. If you only pick one, pick this one. It's where the other two get announced.</p>
+          <p style="margin:0; color:var(--ink-faint); max-width:var(--measure); font-size:var(--t-sm)">A wormhole is also the tunnel a bookworm bores through an old volume, which is more or less the job here: find a hole, go through it, report back.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__meta">
+          <h3 class="pub__name"><a href="https://chapelhillrearview.com/">Chapel Hill Rear View</a></h3>
+          <p class="pub__desc">Your dose of temporal displacement &amp; local history from 50 years ago</p>
+          <a class="pub__link" href="https://chapelhillrearview.com/">chapelhillrearview.com &rarr;</a>
+        </div>
+        <ul class="issues">
+          <li><a href="https://chapelhillrearview.com/p/local-resilience-defies-national-gloom">
+            <span class="date">Feb 3 2025</span>
+            <span class="t">Local Resilience Defies National Gloom</span>
+            <span class="sub">Mann's game, Adam's novel &amp; an environmental war</span>
+          </a></li>
+          <li><a href="https://chapelhillrearview.com/p/january-6th-12th-1975">
+            <span class="date">Jan 6 2025</span>
+            <span class="t">January 6th &ndash; 12th, 1975</span>
+            <span class="sub">The beginnings of OWASA, acerbic movie reviews &amp; the most absurd want ads</span>
+          </a></li>
+          <li><a href="https://chapelhillrearview.com/p/december-12-1974">
+            <span class="date">Dec 13 2024</span>
+            <span class="t">December 12, 1974</span>
+            <span class="sub">Politics, taxes, and perfect shoe repair</span>
+          </a></li>
+          <li><a href="https://chapelhillrearview.com/p/december-9th-1974">
+            <span class="date">Dec 9 2024</span>
+            <span class="t">December 9th, 1974</span>
+            <span class="sub">Secret meetings &amp; mischievous fundraisers: Chapel Hill vs authority</span>
+          </a></li>
+        </ul>
+      </article>
+
+      <article class="pub">
+        <div class="pub__meta">
+          <h3 class="pub__name"><a href="https://covered-dish.beehiiv.com/">Covered Dish</a></h3>
+          <p class="pub__desc">Digesting community-powered cookbooks of the past</p>
+          <a class="pub__link" href="https://covered-dish.beehiiv.com/">covered-dish.beehiiv.com &rarr;</a>
+        </div>
+        <ul class="issues">
+          <li><a href="https://covered-dish.beehiiv.com/p/1925s-orange-date-cake-imperturbable-aunt-eva-seattles-temple-de-hirsch">
+            <span class="date">Feb 2024</span>
+            <span class="t">1925's Orange &amp; Date Cake by the Imperturbable Aunt Eva of Seattle's Temple de Hirsch</span>
+            <span class="sub">The history of date cultivation in the US, boozy watermelon &amp; high-stakes bridge games</span>
+          </a></li>
+          <li><a href="https://covered-dish.beehiiv.com/p/dish-1-1911s-ginger-snaps-verse-best-seller">
+            <span class="date">Oct 2023</span>
+            <span class="t">1911's Ginger Snaps in Verse from a "Best Seller"</span>
+            <span class="sub">Using generative AI to convert recipes, too many cookies &amp; a home remedy for a rattlesnake bite</span>
+          </a></li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<div class="stitchband" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <section class="section" id="musings">
+    <div class="section__head">
+      <h2 class="section__title">select musings</h2>
+      <p class="label">posted elsewhere, worth keeping</p>
+    </div>
+
+    <ul class="musings">
+
+      <li class="is-craft"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7422693014780686338/">
+        <span class="src">LinkedIn</span>
+        <p class="t">Working for Two Companies: The Burden and Gift of Community Management</p>
+        <p class="d">When you work in community, you work for two companies.</p>
+      </a></li>
+
+      <li class="is-craft"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7326608939419115522/">
+        <span class="src">LinkedIn</span>
+        <p class="t">The messy life of a community manager</p>
+        <p class="d">Don't work in community. Seriously.</p>
+      </a></li>
+
+      <li class="is-craft"><a href="https://www.linkedin.com/posts/erikmartin_onlinecommunities-communitymanagement-luckdragons-activity-7029130453387239424-kDe5/">
+        <span class="src">LinkedIn</span>
+        <p class="t">Retention is like heart disease</p>
+        <p class="d">It might not be the scariest fate out there, but statistically, it's probably going to be what kills you.</p>
+      </a></li>
+
+      <li class="is-history"><a href="https://twitter.com/hueypriest/status/1568284427062579200">
+        <span class="src">Twitter</span>
+        <p class="t">The history &amp; evolution of the "Community Manager" job</p>
+        <p class="d">From Ancient Rome to the Oneida Commune in the '20s, to the Farm Security Administration in the '40s, to forums in the '90s.</p>
+      </a></li>
+
+      <li class="is-history"><a href="https://www.linkedin.com/posts/erikmartin_ive-been-searching-for-the-oldest-online-activity-6896515653709262848-i5oe/">
+        <span class="src">LinkedIn</span>
+        <p class="t">Searching for the oldest online Community Manager job listing</p>
+        <p class="d">An archive dig through the earliest traces of the job as a job.</p>
+      </a></li>
+
+      <li class="is-history"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7107732889982619649/">
+        <span class="src">LinkedIn</span>
+        <p class="t">Episode 1 of a new podcast on the history of content marketing</p>
+        <p class="d">American Railroad Journal &mdash; content marketing &amp; thought leadership for an emerging industry.</p>
+      </a></li>
+
+      <li class="is-history"><a href="https://twitter.com/hueypriest/status/1550483763322408964">
+        <span class="src">Twitter</span>
+        <p class="t">100 yrs ago, instead of googling something you'd write to the Q&amp;A column of the paper</p>
+        <p class="d">Search, before search: a newspaper column answering whatever anyone thought to ask.</p>
+      </a></li>
+
+    </ul>
+  </section>
+
+</div>
+
+<div class="stitchband stitchband--blue" aria-hidden="true"></div>
+
+<div class="shell">
+  <footer class="colophon">
+    <p>Erik Martin &mdash; Chapel Hill, NC. Set in Jost and Space Mono. Cross-stitch bands drawn in CSS, palette sampled from a garage sign. Hand-built, hosted on GitHub Pages.</p>
+    <p>
+      <a href="about.html">About</a> &nbsp;/&nbsp;
+      <a href="https://www.linkedin.com/in/erikmartin/">LinkedIn</a> &nbsp;/&nbsp;
+      <a href="https://twitter.com/hueypriest">Twitter</a> &nbsp;/&nbsp;
+      <a href="https://hueypriest.beehiiv.com/">Newsletter</a>
+    </p>
+  </footer>
+</div>
+
+<button class="stitch-btn" id="stitch-btn" type="button" aria-label="About this site" title="About this site">
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 3 L13 13"/><path d="M13 3 L3 13"/></g>
+  </svg>
+</button>
+
+<div class="dlg-scrim" id="dlg-scrim" hidden>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+    <div class="dlg__bar">
+      <button class="dlg__close" id="dlg-close" type="button" aria-label="Close"></button>
+      <p class="dlg__title" id="dlg-title">About This Site</p>
+    </div>
+    <div class="dlg__body">
+      <p>hueypriest.com &mdash; one HTML file, no framework, no tracker, no build step.</p>
+      <p>The bands running across the page are cross-stitch X's drawn as inline SVG. The background is aida cloth, the mesh you stitch onto, rendered as two repeating gradients. The red came off a photo of a garage sign.</p>
+      <p>Built the way the old church cookbooks were: by hand, for a small audience, with the sources kept.</p>
+      <button class="dlg__ok" id="dlg-ok" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- newsletter form: hand off to beehiiv with the address carried ---- */
+  var form = document.getElementById("subscribe-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = document.getElementById("subscribe-email");
+      var value = (input && input.value || "").trim();
+      if (!value) { if (input) { input.focus(); } return; }
+      var url = "https://hueypriest.beehiiv.com/subscribe?email=" + encodeURIComponent(value);
+      window.open(url, "_blank", "noopener");
+    });
+  }
+
+  /* ---- System 7 dialog ---- */
+  var scrim = document.getElementById("dlg-scrim");
+  var openBtn = document.getElementById("stitch-btn");
+  var lastFocus = null;
+
+  function openDlg() {
+    lastFocus = document.activeElement;
+    scrim.hidden = false;
+    var ok = document.getElementById("dlg-ok");
+    if (ok) { ok.focus(); }
+  }
+  function closeDlg() {
+    scrim.hidden = true;
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+  }
+
+  if (openBtn) { openBtn.addEventListener("click", openDlg); }
+  ["dlg-close", "dlg-ok"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.addEventListener("click", closeDlg); }
+  });
+  if (scrim) {
+    scrim.addEventListener("click", function (e) {
+      if (e.target === scrim) { closeDlg(); }
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && scrim && !scrim.hidden) { closeDlg(); }
+  });
+})();
+</script>
+
+</body>
+</html>

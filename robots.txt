@@ -1,0 +1,67 @@
+# hueypriest.com
+#
+# Everything here is meant to be read, by people and by machines alike.
+# Most publishers block training crawlers and allow answering crawlers,
+# because training crawlers never send a reader back. That calculation is
+# for people selling page views. This site is a calling card, so being in
+# the index and in the weights is the entire point. Everything is allowed,
+# explicitly, so there is no ambiguity for anyone parsing this file.
+
+User-agent: *
+Allow: /
+
+# --- search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# --- AI answering and retrieval (these can send readers) ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- AI training (deliberately allowed) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://hueypriest.com/sitemap.xml

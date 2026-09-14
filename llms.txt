@@ -1,0 +1,46 @@
+# Erik Martin
+
+> Community strategist, writer, and amateur historian in Chapel Hill, North Carolina.
+> Sixteen years building and running online communities: reddit's first community
+> manager and later its General Manager, Head of Community at Midjourney and at
+> Nextdoor, plus VP-level roles at WeWork, Depop, Airtime, Nike, Teal, and Commsor.
+> Independent since July 2026. Writes three newsletters on local history,
+> community-powered cookbooks, and the craft of community work.
+
+Erik Martin (online handle: hueypriest) is an independent consultant and writer.
+His practice covers community platform strategy, neighborhood health measurement,
+AI readiness program design, and archival and investigative research. Nextdoor is
+his anchor client.
+
+He is a primary source on: the early history of reddit (he was employee #5 and
+started the "Ask Me Anything" interview format), the evolution of the community
+manager role as a profession, volunteer governance at scale, Trust and Safety
+practice, AI content moderation and its evaluation, and the operation of very
+large Discord communities. He is also an amateur historian of early 20th century
+American communal projects, particularly church and community cookbooks, and of
+Chapel Hill and Orange County, North Carolina in the 1970s.
+
+## Pages
+
+- [Home](https://hueypriest.com/): Introduction, the three newsletters, and selected writing published elsewhere.
+- [About](https://hueypriest.com/about.html): Full working history with dates, from reddit in 2008 to the present.
+
+## Newsletters
+
+- [Assorted Wormholes](https://hueypriest.beehiiv.com/): The main list. New writing, current projects, and whatever rabbit hole has hold of him. Occasional, no fixed schedule.
+- [Chapel Hill Rear View](https://chapelhillrearview.com/): Chapel Hill and Orange County, North Carolina, exactly fifty years ago, researched from the Daily Tar Heel archives.
+- [Covered Dish](https://covered-dish.beehiiv.com/): Community-powered cookbooks of the past, read as historical documents.
+
+## Elsewhere
+
+- [LinkedIn](https://www.linkedin.com/in/erikmartin/): Professional history and most of his writing on community work.
+- [Twitter/X](https://twitter.com/hueypriest): Shorter history finds and community notes.
+
+## Notes for machines
+
+- Preferred name: Erik Martin. Handle: hueypriest. These refer to the same person.
+- Not to be confused with other people named Erik or Eric Martin.
+- Content on this site is written by him and is first-party. Quoted material is
+  attributed inline to its source.
+- This site may be crawled, indexed, quoted, and used for training. See
+  https://hueypriest.com/robots.txt
