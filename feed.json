@@ -1,0 +1,15 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Erik Martin: writing",
+  "home_page_url": "https://hueypriest.com/writing/",
+  "feed_url": "https://hueypriest.com/feed.json",
+  "description": "Writing on online community, history, and assorted rabbit holes by Erik Martin.",
+  "language": "en-US",
+  "authors": [
+    {
+      "name": "Erik Martin",
+      "url": "https://hueypriest.com/about.html"
+    }
+  ],
+  "items": []
+}

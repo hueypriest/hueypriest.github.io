@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}} | Erik Martin</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{url}}">
+<link rel="alternate" type="text/markdown" href="{{md_url}}" title="Markdown source">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Erik Martin">
+<meta property="og:url" content="{{url}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{image}}">
+<meta property="article:published_time" content="{{date}}">
+<meta property="article:modified_time" content="{{updated}}">
+<meta property="article:author" content="https://hueypriest.com/about.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hueypriest">
+
+{{head}}
+
+<script type="application/ld+json">
+{{jsonld}}
+</script>
+</head>
+<body>
+
+{{header}}
+
+<main id="main">
+<article class="shell shell--read">
+
+  <header class="article__head">
+    <p class="label article__kicker"><a href="/writing/">Writing</a></p>
+    <h1 class="article__title">{{title}}</h1>
+    {{dek_html}}
+    <p class="article__meta">
+      <span>By <a href="/about.html" rel="author">Erik Martin</a></span>
+      <span><time datetime="{{date}}">{{date_long}}</time></span>
+      {{updated_html}}
+      <span>{{minutes}} min read</span>
+    </p>
+  </header>
+
+  <div class="prose article__body">
+{{body}}
+  </div>
+
+  <footer class="article__foot">
+    {{tags_html}}
+    <p class="subscribe__note">Permanent link: <a class="textlink" href="{{url}}">{{url_display}}</a> &middot; <a class="textlink" href="{{md_url}}">plain-text version</a> &middot; Corrections are marked with a date. Found one? <a class="textlink" href="{{contact_href}}">Tell me</a>.</p>
+    <nav class="pager" aria-label="More writing">
+      {{prev_html}}
+      {{next_html}}
+    </nav>
+  </footer>
+
+</article>
+</main>
+
+{{footer}}
+
+</body>
+</html>
