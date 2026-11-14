@@ -1,9 +1,22 @@
 /* ---------------------------------------------------------------
    hueypriest.com — shared stylesheet
    Design system: cross-stitch / redwork folk embroidery.
-   Palette sampled from a garage sign; type is Jost + Space Mono.
+   Palette sampled from a garage sign. Type borrowed from 1970s sci-fi
+   paperbacks: Monoton, Righteous, Barlow Condensed, Jost.
    One file for every page, so the pages cannot drift apart.
 ----------------------------------------------------------------*/
+
+/* fonts are served from this site: no third-party requests. All SIL Open Font License. */
+@font-face{ font-family:"Monoton"; font-weight:400; font-style:normal; font-display:swap; src:url("/assets/fonts/monoton-latin-400-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Righteous"; font-weight:400; font-style:normal; font-display:swap; src:url("/assets/fonts/righteous-latin-400-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Barlow Condensed"; font-weight:500; font-style:normal; font-display:swap; src:url("/assets/fonts/barlow-condensed-latin-500-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Barlow Condensed"; font-weight:600; font-style:normal; font-display:swap; src:url("/assets/fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Jost"; font-weight:300; font-style:normal; font-display:swap; src:url("/assets/fonts/jost-latin-300-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Jost"; font-weight:400; font-style:normal; font-display:swap; src:url("/assets/fonts/jost-latin-400-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Jost"; font-weight:400; font-style:italic; font-display:swap; src:url("/assets/fonts/jost-latin-400-italic.woff2") format("woff2"); }
+@font-face{ font-family:"Jost"; font-weight:500; font-style:normal; font-display:swap; src:url("/assets/fonts/jost-latin-500-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Jost"; font-weight:600; font-style:normal; font-display:swap; src:url("/assets/fonts/jost-latin-600-normal.woff2") format("woff2"); }
+@font-face{ font-family:"Space Mono"; font-weight:400; font-style:normal; font-display:swap; src:url("/assets/fonts/space-mono-latin-400-normal.woff2") format("woff2"); }
 
 :root{
   /* ground & ink */
@@ -35,8 +48,16 @@
   --measure: 62ch;
   --gutter: clamp(1.15rem, 4vw, 3rem);
 
-  --mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  /* type roles, after a 1970s science-fiction paperback:
+     a striped inline face for the big titles, a chunky rounded face for
+     headings, condensed caps for labels, and a Futura revival for reading. */
+  --inline:  "Monoton", "Righteous", "Jost", sans-serif;
+  --display: "Righteous", "Jost", "Futura", sans-serif;
+  --label:   "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --sans:    "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --mono:    "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --t-label: .86rem;
+  --t-label-lg: .98rem;
 
   /* one stitch tile, used as a mask so the thread colour follows the theme */
   --stitch-x: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='13' viewBox='0 0 26 13'><g stroke='black' stroke-width='2' stroke-linecap='square' fill='none'><path d='M2 2 L11 11 M11 2 L2 11'/><path d='M15 2 L24 11 M24 2 L15 11'/></g></svg>");
@@ -101,7 +122,8 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .skip{
   position:absolute; left:-999px; top:0; z-index:100;
   background: var(--ink); color: var(--ground);
-  padding:.6rem 1rem; font-family: var(--mono); font-size: var(--t-xs);
+  padding:.6rem 1rem; font-family: var(--label);
+  font-weight: 500; font-size: var(--t-label);
 }
 .skip:focus{ left:0; }
 
@@ -117,14 +139,16 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 /* ---- utility type ---- */
 .label{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform: uppercase;
-  letter-spacing: .11em;
+  letter-spacing:.05em;
   color: var(--ink-faint);
   margin:0;
 }
-.mono{ font-family: var(--mono); }
+.mono{ font-family: var(--label);
+  font-weight: 500; }
 .textlink{
   color: var(--ink);
   text-decoration:none;
@@ -143,9 +167,10 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   padding-block: 1.4rem 1.1rem;
 }
 .masthead__mark{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.14em;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   text-transform:uppercase;
   color: var(--ink-faint);
   text-decoration:none;
@@ -159,9 +184,10 @@ a.masthead__mark:hover{ color: var(--ink); }
   gap: .4rem 1.25rem;
   list-style:none;
   margin:0; padding:0;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.09em;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   text-transform:uppercase;
 }
 .nav a{
@@ -209,10 +235,13 @@ a.masthead__mark:hover{ color: var(--ink); }
 
 .hero__name, .pagehead h1{
   font-size: var(--t-3xl);
-  font-weight:500;
-  line-height:.93;
-  letter-spacing:-.025em;
-  margin:0 0 .3rem;
+  font-family: var(--inline);
+  font-weight:400;
+  text-transform:uppercase;
+  color: var(--red);
+  line-height:1.08;
+  letter-spacing:0;
+  margin:0 0 .2rem;
   text-wrap: balance;
 }
 .hero__tag, .pagehead p{
@@ -234,8 +263,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .hero__bio p{ margin:0; }
 .hero__coda{
-  font-family: var(--mono);
-  font-size: var(--t-sm);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label-lg);
   color: var(--ink-faint);
 }
 
@@ -252,8 +282,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .sampler__title{
   font-size: var(--t-lg);
-  font-weight:500;
-  letter-spacing:-.01em;
+  font-family: var(--display);
+  font-weight:400;
+  letter-spacing:0;
   margin:0;
   line-height:1.2;
 }
@@ -291,7 +322,7 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .now li.is-history::before{ background: var(--ochre); }
 .now li.is-other::before{ background: var(--blue); }
-.now b{ font-weight:500; color: var(--ink); }
+.now b{ font-family: var(--display); font-weight:400; color: var(--ink); }
 
 /* ---- subscribe ---- */
 .subscribe{ display:flex; flex-wrap:wrap; gap:.5rem; margin:0; }
@@ -308,8 +339,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .subscribe input::placeholder{ color: var(--ink-faint); }
 .subscribe button{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform:uppercase;
   letter-spacing:.1em;
   padding: .62rem 1.05rem;
@@ -322,8 +354,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .subscribe button:hover{ background:#9c2e20; border-color:#9c2e20; }
 .subscribe__note{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   color: var(--ink-faint);
   margin:0;
 }
@@ -340,15 +373,17 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .section__title{
   font-size: var(--t-2xl);
-  font-weight:500;
-  letter-spacing:-.02em;
+  font-family: var(--display);
+  font-weight:400;
+  letter-spacing:0;
   line-height:1.05;
   margin:0;
 }
 .section__more{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.06em;
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   color: var(--ink-soft);
   text-decoration:none;
   border-bottom:1px solid var(--red);
@@ -374,8 +409,9 @@ a.masthead__mark:hover{ color: var(--ink); }
   align-items:baseline;
 }
 .entries .date{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
   white-space:nowrap;
@@ -395,9 +431,10 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .entries .src{
   grid-column: 3; grid-row: 1;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.06em;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   text-transform:uppercase;
   color: var(--ink-faint);
   white-space:nowrap;
@@ -425,9 +462,10 @@ a.masthead__mark:hover{ color: var(--ink); }
   margin: 0 0 1.4rem;
 }
 .filters button{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.07em;
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   text-transform:uppercase;
   padding:.42rem .75rem;
   color: var(--ink-soft);
@@ -457,8 +495,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 .pub__meta{ display:flex; flex-direction:column; gap:.35rem; }
 .pub__name{
   font-size: var(--t-xl);
-  font-weight:500;
-  letter-spacing:-.015em;
+  font-family: var(--display);
+  font-weight:400;
+  letter-spacing:0;
   line-height:1.12;
   margin:0;
 }
@@ -473,9 +512,10 @@ a.masthead__mark:hover{ color: var(--ink); }
 .pub__name a:hover{ background-size:100% 2px; color: var(--red); }
 .pub__desc{ margin:0; color: var(--ink-soft); font-size: var(--t-sm); line-height:1.5; }
 .pub__link{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing:.06em;
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
+  letter-spacing:.05em;
   color: var(--ink-faint);
   text-decoration:none;
 }
@@ -511,8 +551,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .cards a:hover{ background: var(--ground-deep); }
 .cards .src{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform:uppercase;
   letter-spacing:.1em;
   color: var(--ink-faint);
@@ -549,6 +590,7 @@ a.masthead__mark:hover{ color: var(--ink); }
 .cards--links .t{ font-size: var(--t-lg); }
 
 /* ---- prose (about page, articles) ---- */
+.prose strong, .prose b{ font-weight:600; }
 .prose{
   max-width: var(--measure);
   display:flex;
@@ -574,8 +616,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 .prose blockquote cite{
   display:block;
   margin-top:.5rem;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   font-style:normal;
   letter-spacing:.05em;
   color: var(--ink-faint);
@@ -588,9 +631,10 @@ a.masthead__mark:hover{ color: var(--ink); }
 .article__kicker a:hover{ color: var(--red); }
 .article__title{
   font-size: var(--t-3xl);
-  font-weight:500;
+  font-family: var(--display);
+  font-weight:400;
   line-height:1;
-  letter-spacing:-.025em;
+  letter-spacing:0;
   margin:0 0 .8rem;
   text-wrap: balance;
 }
@@ -603,8 +647,9 @@ a.masthead__mark:hover{ color: var(--ink); }
   text-wrap: pretty;
 }
 .article__meta{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   color: var(--ink-faint);
   letter-spacing:.03em;
   display:flex; flex-wrap:wrap; gap:.3rem 1.1rem;
@@ -622,8 +667,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .article__body h2{
   font-size: var(--t-xl);
-  font-weight:500;
-  letter-spacing:-.015em;
+  font-family: var(--display);
+  font-weight:400;
+  letter-spacing:0;
   line-height:1.2;
   margin-top:1.4rem;
 }
@@ -642,8 +688,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 .article__body figcaption, .article__body img + em{
   display:block;
   margin-top:.5rem;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   font-style:normal;
   color: var(--ink-faint);
   line-height:1.6;
@@ -687,10 +734,11 @@ a.masthead__mark:hover{ color: var(--ink); }
   vertical-align:top;
 }
 .article__body th{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform:uppercase;
-  letter-spacing:.06em;
+  letter-spacing:.05em;
   color: var(--ink-faint);
   font-weight:400;
 }
@@ -706,10 +754,11 @@ a.masthead__mark:hover{ color: var(--ink); }
 .article__body .footnote::before{
   content:"Sources & notes";
   display:block;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform:uppercase;
-  letter-spacing:.11em;
+  letter-spacing:.05em;
   color: var(--ink-faint);
   margin-bottom:.7rem;
 }
@@ -727,8 +776,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 .article__tags{
   display:flex; flex-wrap:wrap; gap:.4rem;
   list-style:none; margin:0; padding:0;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   letter-spacing:.05em;
   color: var(--ink-faint);
 }
@@ -762,8 +812,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 .job--now .job__spine{ opacity:1; }
 .job__when{
   grid-area: 1 / 1 / 2 / 2;
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
   line-height:1.5;
@@ -782,12 +833,13 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .job__role{
   font-size: var(--t-lg);
-  font-weight:500;
-  letter-spacing:-.012em;
+  font-family: var(--display);
+  font-weight:400;
+  letter-spacing:0;
   line-height:1.25;
   margin:0;
 }
-.job__org{ color: var(--red); font-weight:400; }
+.job__org{ color: var(--red); }
 .job__note{
   margin:.4rem 0 0;
   color: var(--ink-soft);
@@ -806,8 +858,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 }
 .stint__role{ font-size: var(--t-base); font-weight:500; line-height:1.3; margin:0; }
 .stint__when{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   font-weight:400;
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
@@ -822,8 +875,9 @@ a.masthead__mark:hover{ color: var(--ink); }
   max-width:54ch;
 }
 .tl-end{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   color: var(--ink-faint);
   padding:1.1rem 0 0;
   margin:0;
@@ -832,8 +886,9 @@ a.masthead__mark:hover{ color: var(--ink); }
 
 /* key/value cards (about: elsewhere) */
 .cards--kv .k{
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 600;
+  font-size: var(--t-label);
   text-transform:uppercase;
   letter-spacing:.1em;
   color: var(--ink-faint);
@@ -851,8 +906,9 @@ a.masthead__mark:hover{ color: var(--ink); }
   justify-content:space-between;
   align-items:flex-end;
   color: var(--ink-faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: var(--t-label);
   line-height:1.7;
 }
 .colophon p{ margin:0; max-width:34rem; }
