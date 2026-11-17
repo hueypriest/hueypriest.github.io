@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2026-11-12",
+    "items": [
+      {
+        "theme": "history",
+        "title": "Minitel.",
+        "text": "an essay on France's pre-web network as an online community platform."
+      },
+      {
+        "theme": "craft",
+        "title": "AI and jobs.",
+        "text": "reading today's forecasts against the ones made during the computer revolution."
+      },
+      {
+        "theme": "history",
+        "title": "A book.",
+        "text": "narrative nonfiction set in Chapel Hill in 1978. deep in the archives."
+      },
+      {
+        "theme": "other",
+        "title": "A take-one-leave-one box",
+        "text": "for VHS tapes, DVDs and CDs. still plotting."
+      }
+    ]
+  }
+]

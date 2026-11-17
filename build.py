@@ -14,7 +14,7 @@ Run it with:   python3 build.py            (needs: pip install markdown)
 Preview with:  python3 build.py --drafts   (also builds drafts; don't commit)
 
 Hand-edited files:  index.html, about.html, 404.html, assets/, templates/, content/
-Generated files:    writing/**, feed.xml, feed.json, sitemap.xml, llms.txt
+Generated files:    writing/**, now/**, feed.xml, feed.json, sitemap.xml, llms.txt
 """
 import datetime as dt
 import html
@@ -88,6 +88,41 @@ HEAD = tpl("_head.html").rstrip()
 FOOTER = fill(tpl("_footer.html"), contact_href=esc(CONTACT_HREF)).rstrip()
 
 
+# ---------------------------------------------------------------- custom blocks
+# Three fenced blocks are understood inside an article:
+#   ::: clipping     an archival scan with its source line
+#   ::: pullquote    a sentence set large
+#   ::: wide         content that breaks out wider than the text column
+def render_blocks(text, citations):
+    def clipping(inner):
+        img = re.search(r"!\[(.*?)\]\((.*?)\)", inner)
+        if not img:
+            sys.exit("build.py: a ::: clipping block needs an image line: ![description](/assets/img/file.jpg)")
+        f = {k.lower(): v.strip() for k, v in re.findall(r"^(\w+):\s*(.+)$", inner, re.M)}
+        if not f.get("source"):
+            sys.exit("build.py: a ::: clipping block needs a 'source:' line")
+        citations.append({k: f[k] for k in ("source", "date", "link") if f.get(k)})
+        ref = ", ".join(x for x in (f"<cite>{esc(f['source'])}</cite>", esc(f.get("date", "")), esc(f.get("page", ""))) if x)
+        image = f'<img src="{esc(img.group(2))}" alt="{esc(img.group(1))}">'
+        if f.get("link"):
+            image = f'<a href="{esc(f["link"])}">{image}</a>'
+            ref += f' <a href="{esc(f["link"])}">View the original</a>'
+        note = f'<span class="clipping__note">{esc(f["note"])}</span>' if f.get("note") else ""
+        return f'<figure class="clipping">{image}<figcaption>{note}<span class="clipping__ref">{ref}</span></figcaption></figure>'
+
+    def sub(m):
+        kind, inner = m.group(1), m.group(2).strip()
+        if kind == "clipping":
+            return "\n" + clipping(inner) + "\n"
+        if kind == "pullquote":
+            return f'\n<aside class="pullquote" markdown="1">\n\n{inner}\n\n</aside>\n'
+        if kind == "wide":
+            return f'\n<div class="wide" markdown="1">\n\n{inner}\n\n</div>\n'
+        sys.exit(f"build.py: unknown block ':::{kind}' (use clipping, pullquote or wide)")
+
+    return re.sub(r"^::: *(\w+) *\n(.*?)\n:::[ \t]*$", sub, text, flags=re.S | re.M)
+
+
 # ---------------------------------------------------------------- posts
 def parse_post(path):
     raw = path.read_text()
@@ -111,7 +146,9 @@ def parse_post(path):
     body_md = m.group(2).strip()
     slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", path.stem).lstrip("_")
     md = markdown.Markdown(extensions=["extra", "smarty", "sane_lists"])
-    body_html = md.convert(body_md)
+    citations = []
+    body_html = md.convert(render_blocks(body_md, citations))
+    body_html = body_html.replace("<img ", '<img loading="lazy" decoding="async" ')
     text = re.sub(r"<[^>]+>", " ", body_html)
     words = len(text.split())
     first_para = re.search(r"<p>(.*?)</p>", body_html, re.S)
@@ -124,7 +161,7 @@ def parse_post(path):
         slug=slug, title=meta["title"], dek=meta.get("dek", ""), description=desc,
         date=date, updated=d(meta["updated"]) if meta.get("updated") else date,
         tags=meta.get("tags") or [], image=meta.get("image") or f"{BASE}/avatar.jpg",
-        draft=str(meta.get("draft", "")).lower() == "true",
+        draft=str(meta.get("draft", "")).lower() == "true", citations=citations,
         body_md=body_md, body_html=body_html, minutes=max(1, round(words / 230)), words=words,
         url=f"{BASE}/writing/{slug}/", path=f"/writing/{slug}/", md_path=f"/writing/{slug}.md",
     )
@@ -163,6 +200,8 @@ for i, p in enumerate(posts):
         "inLanguage": "en-US",
         "wordCount": p["words"],
         "keywords": p["tags"],
+        "citation": [{"@type": "CreativeWork", "name": c["source"], **({"url": c["link"]} if c.get("link") else {}),
+                      **({"temporalCoverage": c["date"]} if c.get("date") else {})} for c in p["citations"]],
         "image": p["image"],
         "author": person_ref(),
         "publisher": person_ref(),
@@ -259,12 +298,36 @@ else:
                    'every newsletter issue and the pieces below.</p>')
 
 featured = sorted([e for e in elsewhere if e.get("featured")], key=lambda e: e["date"], reverse=True)
-featured_html = '    <ul class="cards">\n' + "\n".join(
+featured_html = '    <ul class="cards cards--featured">\n' + "\n".join(
     f'      <li class="is-{esc(e.get("theme", "other"))}"><a href="{esc(e["url"])}">\n'
     f'        <span class="src">{esc(e["source"])} &middot; <time datetime="{e["date"].isoformat()}">{e["date"]:%b %Y}</time></span>\n'
     f'        <p class="t">{esc(e["title"])}</p>\n'
     f'        <p class="d">{esc(e.get("sub", ""))}</p>\n'
     f'      </a></li>' for e in featured) + "\n    </ul>"
+
+
+# ---------------------------------------------------------------- now: latest entry on the home page, full log at /now/
+now = json.loads((ROOT / "content/now.json").read_text())
+for n in now:
+    n["date"] = d(n["date"])
+now.sort(key=lambda n: n["date"], reverse=True)
+
+
+def now_items(entry, indent):
+    return (f'{indent}<ul class="now">\n' + "\n".join(
+        f'{indent}  <li class="is-{esc(i.get("theme", "other"))}"><span><b>{esc(i["title"])}</b> {esc(i["text"])}</span></li>'
+        for i in entry["items"]) + f"\n{indent}</ul>")
+
+
+now_home = (now_items(now[0], "      ") +
+            f'\n      <p class="subscribe__note">Updated <time datetime="{now[0]["date"].isoformat()}">'
+            f'{now[0]["date"]:%b} {now[0]["date"].day}, {now[0]["date"].year}</time> &middot; '
+            f'<a class="textlink" href="/now/">the log</a></p>')
+now_log = "\n".join(
+    f'    <article class="logentry">\n      <h2 class="logentry__date"><time datetime="{n["date"].isoformat()}">{long(n["date"])}</time>'
+    f'{" <span>current</span>" if k == 0 else ""}</h2>\n{now_items(n, "      ")}\n    </article>'
+    for k, n in enumerate(now))
+write("now/index.html", fill(tpl("now.html"), head=HEAD, header=header(), footer=FOOTER, log=now_log))
 
 
 # ---------------------------------------------------------------- marked blocks in hand-edited pages
@@ -289,6 +352,7 @@ BLOCKS = {
     "footer": FOOTER,
     "latest": latest_html,
     "featured": featured_html,
+    "now": now_home,
     "contact": f'      <p>The best way to reach me is <a href="{esc(CONTACT_HREF)}" rel="me">{esc(CONTACT_LABEL)}</a>.</p>',
 }
 for page in ("index.html", "about.html", "404.html"):
@@ -345,7 +409,7 @@ def page_date(filename):
 
 
 urls = [("/", max(page_date("index.html"), latest_date)), ("/writing/", latest_date),
-        ("/about.html", page_date("about.html"))] + [(p["path"], p["updated"]) for p in posts]
+        ("/about.html", page_date("about.html")), ("/now/", now[0]["date"])] + [(p["path"], p["updated"]) for p in posts]
 write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n'
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
       "".join(f"  <url><loc>{BASE}{u}</loc><lastmod>{m.isoformat()}</lastmod></url>\n" for u, m in urls) +

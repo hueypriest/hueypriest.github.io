@@ -34,6 +34,34 @@ image in the square brackets, and put the source in italics on the next line:
 ![A needlepoint lion with googly eyes glued on.](/avatar.jpg)
 *The lion. Source: a thrift store.*
 
+## Three special blocks
+
+**A clipping** is for archival scans. It needs an image and a `source`; `date`,
+`page`, `link` and `note` are optional. The source also goes into the page's
+hidden data, so search engines and AI tools can see what the piece rests on.
+
+::: clipping
+![A needlepoint lion with googly eyes glued on.](/avatar.jpg)
+source: The Thrift Store Gazette
+date: December 9, 1974
+page: p. 1
+link: https://hueypriest.com/about.html
+note: A placeholder. Real clippings link to the scan.
+:::
+
+**A pull quote** sets one sentence large, to give a long piece a change of pace:
+
+::: pullquote
+People have been doing this work for a very long time. Most of them didn't call it that.
+:::
+
+**Wide** lets an image or table break out past the text column:
+
+::: wide
+![A needlepoint lion with googly eyes glued on.](/avatar.jpg)
+*A wide image. Caption in italics on the next line.*
+:::
+
 ---
 
 ## Sources go in footnotes

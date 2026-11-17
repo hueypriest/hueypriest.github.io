@@ -10,7 +10,13 @@
 <link rel="preload" href="/assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/monoton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f1f2ee'/%3E%3Cpath d='M3 3 L13 13 M13 3 L3 13' stroke='%23bf3b2b' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f1f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}</script>
 <link rel="alternate" type="application/rss+xml" title="Erik Martin: writing" href="/feed.xml">
 <link rel="alternate" type="application/feed+json" title="Erik Martin: writing" href="/feed.json">
 <link rel="author" href="/about.html">
@@ -32,6 +38,7 @@
         <li><a href="/#newsletters">Newsletters</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/feed.xml">RSS</a></li>
+        <li><button class="theme-btn" id="theme-btn" type="button" hidden>Dark</button></li>
       </ul>
     </nav>
   </header>
@@ -65,6 +72,7 @@
     <p>
       <a href="/writing/">Writing</a> &nbsp;/&nbsp;
       <a href="/about.html">About</a> &nbsp;/&nbsp;
+      <a href="/now/">Now</a> &nbsp;/&nbsp;
       <a href="https://www.linkedin.com/in/erikmartin/">Contact</a> &nbsp;/&nbsp;
       <a href="/feed.xml">RSS</a> &nbsp;/&nbsp;
       <a href="https://www.linkedin.com/in/erikmartin/">LinkedIn</a> &nbsp;/&nbsp;

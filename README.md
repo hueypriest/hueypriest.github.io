@@ -14,11 +14,33 @@ The build adds the piece to the home page, the Writing index, the RSS and JSON
 feeds, the sitemap, and llms.txt, and writes its structured data. Files whose
 names start with `_`, or that say `draft: true`, are never published.
 
+## Special blocks inside an article
+
+    ::: clipping                      an archival scan, mounted, with its source line
+    ![describe the image](/assets/img/scan.jpg)
+    source: The Daily Tar Heel        (required)
+    date: December 9, 1974
+    page: p. 1
+    link: https://link-to-the-scan
+    note: optional caption
+    :::
+
+    ::: pullquote                     one sentence, set large
+    The sentence.
+    :::
+
+    ::: wide                          an image or table wider than the text column
+    ![describe the image](/assets/img/photo.jpg)
+    :::
+
+`_example.md` shows all three. Clipping sources are also written into the page's
+structured data as citations.
+
 ## Other common edits
 
 | To change | Edit |
 |---|---|
-| "Currently down these holes" | `index.html` (search for CURRENTLY). Update the date. |
+| "Currently down these holes" | add a new dated entry at the top of `content/now.json`. Old entries stay in the log at `/now/`. |
 | A link to something published elsewhere | add an entry to `content/elsewhere.json` |
 | Which outside pieces show on the home page | `"featured": true` in that file |
 | Contact method | `contact_email` in `content/site.json` (blank = LinkedIn) |
@@ -27,7 +49,7 @@ names start with `_`, or that say `draft: true`, are never published.
 | Bio, newsletters section | `index.html` |
 | Work history | `about.html` (keep the JSON block at the top in step with the timeline) |
 
-Never edit `writing/`, `feed.xml`, `feed.json`, `sitemap.xml` or `llms.txt` by
+Never edit `writing/`, `now/`, `feed.xml`, `feed.json`, `sitemap.xml` or `llms.txt` by
 hand. The build overwrites them.
 
 ## Build locally

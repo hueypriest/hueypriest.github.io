@@ -36,6 +36,30 @@
     });
   }
 
+  /* theme switch: starts from the system setting, remembers a choice */
+  var themeBtn = document.getElementById("theme-btn");
+  if (themeBtn) {
+    var root = document.documentElement;
+    var current = function () {
+      var set = root.getAttribute("data-theme");
+      if (set) { return set; }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    };
+    var paint = function () {
+      var next = current() === "dark" ? "light" : "dark";
+      themeBtn.textContent = next;
+      themeBtn.setAttribute("aria-label", "Switch to " + next + " theme");
+    };
+    themeBtn.hidden = false;
+    paint();
+    themeBtn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) { /* private mode: choice lasts this page only */ }
+      paint();
+    });
+  }
+
   /* System 7 dialog */
   var scrim = document.getElementById("dlg-scrim");
   var openBtn = document.getElementById("stitch-btn");

@@ -24,6 +24,7 @@ Chapel Hill and Orange County, North Carolina in the 1970s.
 
 - [Home](https://hueypriest.com/): Introduction, what he is working on now, latest writing, and the newsletters.
 - [Writing](https://hueypriest.com/writing/): One chronological list of everything he has published, on this site and elsewhere, with dates and sources.
+- [Now](https://hueypriest.com/now/): What he is working on at the moment, with a dated log of earlier entries.
 - [About](https://hueypriest.com/about.html): Full working history with dates, from reddit in 2008 to the present, and how to reach him.
 
 ## Articles on this site
