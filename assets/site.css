@@ -260,15 +260,27 @@ a.masthead__mark:hover{ color: var(--ink); }
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--red) 82%, transparent);
 }
 
-.hero__name, .pagehead h1{
-  font-size: var(--t-3xl);
+/* the name: Monoton, in its lowercase set. Monoton is a "unicase" face, so its
+   lowercase keeps capital height but swaps in round forms for letters like m and a. */
+.hero__name{
   font-family: var(--inline);
+  font-size: var(--t-3xl);
   font-weight:400;
-  text-transform:uppercase;
   color: var(--red);
   line-height:1.08;
   letter-spacing:0;
   margin:0 0 .2rem;
+  text-wrap: balance;
+}
+/* every other page title: the readable display face, same red */
+.pagehead h1{
+  font-family: var(--display);
+  font-size: var(--t-3xl);
+  font-weight:400;
+  color: var(--red);
+  line-height:1;
+  letter-spacing:0;
+  margin:0 0 .45rem;
   text-wrap: balance;
 }
 .hero__tag, .pagehead p{
