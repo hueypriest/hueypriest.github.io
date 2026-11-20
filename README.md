@@ -6,7 +6,8 @@ Erik Martin's personal site. Plain HTML, one stylesheet, one small build script.
 
 1. In `content/posts/`, copy `_example.md` to a new file, e.g. `minitel.md`.
    The file name becomes the address: `hueypriest.com/writing/minitel/`.
-2. Fill in the top block (`title` and `date` are required), write the piece in
+2. Fill in the top block (`title` and `date` are required; add `linebreaks: true`
+   for pieces written in short lines, so each line break is kept), write the piece in
    Markdown, delete the `draft: true` line.
 3. Commit. GitHub builds and publishes it in about a minute.
 

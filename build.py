@@ -145,7 +145,10 @@ def parse_post(path):
             sys.exit(f"build.py: {path.name} is missing '{need}:' in its front matter")
     body_md = m.group(2).strip()
     slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", path.stem).lstrip("_")
-    md = markdown.Markdown(extensions=["extra", "smarty", "sane_lists"])
+    exts = ["extra", "smarty", "sane_lists"]
+    if str(meta.get("linebreaks", "")).lower() == "true":
+        exts.append("nl2br")   # keep the author's own line breaks (for pieces written in short lines)
+    md = markdown.Markdown(extensions=exts)
     citations = []
     body_html = md.convert(render_blocks(body_md, citations))
     body_html = body_html.replace("<img ", '<img loading="lazy" decoding="async" ')
@@ -159,6 +162,7 @@ def parse_post(path):
     date = d(meta["date"])
     return dict(
         slug=slug, title=meta["title"], dek=meta.get("dek", ""), description=desc,
+        summary=meta.get("dek") or meta.get("description", ""),
         date=date, updated=d(meta["updated"]) if meta.get("updated") else date,
         tags=meta.get("tags") or [], image=meta.get("image") or f"{BASE}/avatar.jpg",
         draft=str(meta.get("draft", "")).lower() == "true", citations=citations,
@@ -250,7 +254,7 @@ def row(date, title, href, sub="", src="", kind="", here=False):
 
 
 everything = (
-    [dict(date=p["date"], title=p["title"], href=p["path"], sub=p["dek"], src="Here", kind="here", here=True)
+    [dict(date=p["date"], title=p["title"], href=p["path"], sub=p["summary"], src="Here", kind="here", here=True)
      for p in posts] +
     [dict(date=e["date"], title=e["title"], href=e["url"], sub=e.get("sub", ""), src=e["source"], kind=e["kind"])
      for e in elsewhere]
@@ -290,7 +294,7 @@ write("writing/index.html", fill(
 
 if posts:
     latest_html = ('    <ul class="entries">\n' +
-                   "\n".join(row(p["date"], p["title"], p["path"], p["dek"]) for p in posts[:5]) +
+                   "\n".join(row(p["date"], p["title"], p["path"], p["summary"]) for p in posts[:5]) +
                    "\n    </ul>")
 else:
     latest_html = ('    <p class="empty">Articles will be published here, on this site, starting soon. '

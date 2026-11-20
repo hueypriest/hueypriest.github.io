@@ -31,7 +31,8 @@ Chapel Hill and Orange County, North Carolina in the 1970s.
 
 Each links to a plain Markdown copy. The HTML version is the same URL without ".md", ending in "/".
 
-- None published on this site yet. See the Writing page for work published elsewhere.
+- [Working for Two Companies: The Burden and Gift of Community Management](https://hueypriest.com/writing/working-for-two-companies.md) (2026-01-29): When you work in community, you work for two companies. One pays your salary. The other gives you a reason to cash the check.
+- [The messy life of a community manager](https://hueypriest.com/writing/messy-life-of-a-community-manager.md) (2025-05-09): Don’t work in community. Seriously.
 
 ## Feeds
 
